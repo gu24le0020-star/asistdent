@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0e172a"><meta name="description" content="Asist Dent: la plataforma de organización e inteligencia artificial para odontólogos, recordatorios por WhatsApp y atención 24/7."><title>Asist Dent | Tu consultorio en orden</title>
+<style>
+:root{--navy:#0e172a;--ink:#111a2f;--muted:#4e5d72;--paper:#f7f9fb;--cyan:#00a5dd;--green:#12b886; color-scheme:light;}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);font-family:"Arial Narrow","Aptos","Arial",system-ui,sans-serif;color:var(--ink)}
+a{color:inherit}.screen-reader{position:absolute;clip:rect(0,0,0,0);width:1px;height:1px;overflow:hidden}
+.slide-frame{width:100%;position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--paper)}
+.slide-frame.navy{background:var(--navy)}.slide-canvas{width:960px;height:540px;position:absolute;left:0;top:0;transform-origin:top left;overflow:hidden}
+.slide-canvas>*{position:absolute}.eyebrow{font-size:11px;line-height:15px;font-weight:800;text-transform:uppercase;letter-spacing:-.15px;color:var(--ink)}
+.heading{font-size:29px;line-height:35px;letter-spacing:-.95px;font-weight:800;white-space:nowrap}
+.body-copy{font-size:16px;line-height:28px;color:#526075}
+.hero-kicker{color:#00a8df;font-size:12px;font-weight:800;letter-spacing:-.3px}
+.hero-name{font-size:58px;line-height:1;font-weight:800;letter-spacing:-2.2px;color:#fff;white-space:nowrap}
+.hero-name span{color:var(--cyan)}.hero-tag{font-size:19px;color:#bcc6d4;line-height:26px;white-space:nowrap}
+.hero-line,.accent-line{background:var(--green);height:5px;width:53px;border-radius:4px}.accent-line{height:3px;background:var(--cyan);width:43px}
+.picture{display:block;object-fit:cover;object-position:center;}
+.problem-list{display:flex;flex-direction:column;gap:19px;font-size:17.6px;line-height:27px}
+.problem{border-left:3px solid var(--cyan);padding-left:9px;white-space:nowrap}
+.problem:nth-child(2){border-left-color:var(--green)}
+.problem strong{font-weight:800}
+.feature-card,.trust-card{background:#fff;border-radius:18px;box-shadow:none;padding:21px 21px 19px;}
+.feature-card{width:270px;height:161px}.trust-card{width:367px;height:139px}
+.card-icon{font-size:28px;height:38px;display:flex;align-items:center;margin-bottom:5px;color:var(--cyan)}
+.card-icon.green{color:var(--green)}.card-icon svg{display:block;width:30px;height:30px}
+.card-title{font-size:19px;font-weight:800;line-height:27px;letter-spacing:-.65px;white-space:nowrap}
+.card-desc{font-size:15px;color:var(--muted);line-height:17px;margin-top:7px}
+.trust-card .card-title{font-size:19px}.trust-card .card-desc{font-size:15px}
+.kpi{font-size:90px;line-height:1.04;font-weight:800;letter-spacing:-3px;color:var(--ink)}
+.kpi-foot{font-size:18px;color:var(--ink)}.kpi-sub{font-weight:800;font-size:18px;color:var(--ink)}
+.location{display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px}
+.location svg{width:16px;height:23px;fill:var(--green);flex:0 0 auto}
+.close-kicker{font-weight:800;color:var(--green);text-transform:uppercase;font-size:12px;text-align:center}
+.close-heading{font-size:39px;color:#fff;font-weight:800;line-height:1.14;text-align:center;letter-spacing:-.8px;}
+.whats-btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;border-radius:6px;text-decoration:none;font-size:18px;font-weight:800;color:var(--cyan);line-height:24px;cursor:pointer;transition:transform .2s,filter .2s;}
+.whats-btn:hover,.whats-btn:focus-visible{transform:scale(1.035);filter:brightness(1.2)}
+.whats-btn:focus-visible{outline:3px solid var(--green);outline-offset:5px}
+.whats-btn svg{width:17px;height:17px;fill:none;stroke:var(--cyan);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.footer-note{font-size:13px;color:#8492a7;white-space:nowrap}
+@media (min-width:1500px){body{background:#e8edf2}.slide-frame{max-width:1500px;margin:auto;box-shadow:0 4px 32px #0e172a0a}}
+@media (max-width:680px){
+ .slide-frame{aspect-ratio:auto!important;min-height:0;overflow:visible;}
+ .slide-canvas{transform:none!important;width:auto!important;height:auto!important;position:relative;overflow:visible;display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding:40px 24px 46px;}
+ .slide-canvas>*{position:relative!important;left:auto!important;top:auto!important;bottom:auto!important;right:auto!important;width:auto!important;height:auto!important;max-width:100%;}
+ .slide-canvas .heading{font-size:clamp(26px,7vw,36px);line-height:1.16;white-space:normal;letter-spacing:-.7px;margin:0 0 14px}
+ .eyebrow{font-size:11px}.hero-kicker{font-size:12px}
+ .slide-canvas .hero-name{font-size:clamp(48px,14vw,78px);white-space:normal;margin:0;}
+ .slide-canvas .hero-tag{white-space:normal;font-size:17px;line-height:1.4;margin-bottom:4px}
+ .slide-canvas .picture{width:100%!important;height:auto!important;object-fit:cover;border-radius:17px;margin-top:16px}
+ .slide--hero .slide-canvas{padding-top:64px;padding-bottom:54px;min-height:85svh;justify-content:center;}
+ .slide--hero .picture{max-height:400px;object-fit:contain;border-radius:0}
+ .slide-canvas .problem-list{gap:24px;margin:38px 0 30px;width:100%!important;font-size:16px;line-height:1.5}
+ .slide-canvas .problem{white-space:normal}
+ .slide--features .feature-card{width:100%!important;height:auto!important;padding:24px;border:1px solid #edf2f6;margin:2px 0;}
+ .slide--features .card-title{white-space:normal;font-size:20px}.slide--features .card-desc{font-size:16px;line-height:1.4;}
+ .slide--features .slide-canvas{gap:12px}
+ .slide-canvas .body-copy{font-size:17px;line-height:1.5;}
+ .slide-canvas .accent-line{height:4px;width:43px}
+ .slide--metric .slide-canvas{min-height:50svh;justify-content:center;align-items:center;text-align:center}
+ .slide--metric .eyebrow,.slide--metric .heading{align-self:stretch;text-align:left}
+ .slide-canvas .kpi{font-size:clamp(72px,23vw,128px);line-height:1;margin-top:26px}
+ .slide-canvas .kpi-foot,.slide-canvas .kpi-sub{font-size:16px;line-height:1.4;text-align:center}
+ .slide--absent .kpi-foot,.slide--absent .kpi-sub{text-align:left}
+ .slide--absent .kpi{font-size:clamp(78px,22vw,112px)}
+ .slide--absent .picture,.slide--platform .picture,.slide--reach .picture{max-height:none}
+ .slide--trust .trust-card{width:100%!important;height:auto!important;padding:22px;margin:6px 0}
+ .slide--trust .card-title{white-space:normal}
+ .slide--reach .location{font-size:20px;margin-top:25px}
+ .slide--closing .slide-canvas{align-items:center;justify-content:center;min-height:65svh;text-align:center;gap:18px;padding:72px 24px}
+ .slide--closing .close-heading{font-size:clamp(28px,8vw,46px);line-height:1.25}
+ .slide--closing .whats-btn{font-size:18px;padding:12px 14px;background:#0c2d48;white-space:normal}
+ .slide--closing .footer-note{white-space:normal;font-size:12px}
+ .slide--closing .close-kicker{font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.whats-btn{transition:none}}
+</style></head><body>
+<main id="inicio"><section class="slide-frame navy slide--hero" aria-label="navy Sección hero"><div class="slide-canvas">
+ <div class="hero-kicker" style="left:54px;top:200px">APLICACIÓN DE ORGANIZACIÓN + IA</div>
+ <h1 class="hero-name" style="left:54px;top:237px;margin:0">Asist <span>Dent</span></h1>
+ <p class="hero-tag" style="left:54px;top:313px;margin:0">Tu consultorio en orden, tu vida en calma.</p>
+ <div class="hero-line" style="left:54px;top:364px" aria-hidden="true"></div>
+ <img class="picture" style="left:538.8px;top:112.56px;width:367.2px;height:314.88px" src="imagenes/logo_original.jpg" alt="Logo de Asist Dent: diente con el nombre Asist dent sostenido por dos manos, rodeado de cintas azules y violetas" />
+</div></section><section class="slide-frame slide--problem" aria-label="Sección problem"><div class="slide-canvas">
+ <div class="eyebrow" style="left:54px;top:41px">EL PROBLEMA ACTUAL</div>
+ <h2 class="heading" style="left:54px;top:63px;margin:0">Deja de ser tu propio secretario</h2>
+ <div class="problem-list" style="left:128px;top:248px;width:760px">
+   <div class="problem"><strong>Sobrecarga administrativa:</strong> Horas perdidas respondiendo mensajes manuales.</div>
+   <div class="problem"><strong>Sillones vacíos:</strong> Inasistencias frecuentes por falta de confirmación.</div>
+   <div class="problem"><strong>Atención interrumpida:</strong> Consultas pausadas para gestionar la agenda.</div>
+ </div>
+</div></section><section class="slide-frame slide--platform" aria-label="Sección platform"><div class="slide-canvas">
+ <div class="eyebrow" style="left:54px;top:41px">LA PLATAFORMA INTELIGENTE</div>
+ <h2 class="heading" style="left:54px;top:63px;margin:0">Diseñada exclusivamente para odontólogos</h2>
+ <img class="picture" style="left:54px;top:136.32px;width:408px;height:345.12px;border-radius:17px" src="imagenes/odontologa_paciente.jpg" alt="Odontóloga atendiendo a un paciente en el consultorio dental"/>
+ <div style="left:498px;top:249px;width:402px">
+ <h3 style="font-size:22px;line-height:1.5;letter-spacing:-.6px;margin:0 0 18px">Tu asistente virtual con Inteligencia<br>Artificial</h3>
+ <p class="body-copy" style="margin:0;font-size:16px;line-height:27px">Automatiza tu agenda clínica, envía recordatorios oportunos y atiende pacientes las 24 horas del día.</p>
+ <div class="accent-line" style="margin-top:10px" aria-hidden="true"></div>
+ </div>
+</div></section><section class="slide-frame slide--features" aria-label="Sección features"><div class="slide-canvas">
+ <div class="eyebrow" style="left:54px;top:41px">FUNCIONALIDADES CLAVE</div>
+ <h2 class="heading" style="left:54px;top:63px;margin:0">Gestión integral sin esfuerzo manual</h2>
+ <article class="feature-card" style="left:54px;top:226px"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18M8 15l2.5 2.5L16 13"/></svg></div><div class="card-title">Agenda Automatizada</div><div class="card-desc">Organización inteligente de citas<br>diarias.</div></article>
+ <article class="feature-card" style="left:345px;top:226px"><div class="card-icon green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 11.8a8.5 8.5 0 0 1-12.5 7.5L3 20.7l1.5-4.5A8.5 8.5 0 1 1 20.2 11.8Z"/><path d="M9 8.5c-.5 0-1.1.9-1.1 1.7.1 2.4 2.6 5 5 5.6 1 .2 2.1-.6 2.3-1.1 0-.4-1.8-1.2-2-1-.3.3-.6.7-1 .6-.7-.3-1.9-1.3-2.2-2.1-.2-.5.6-.9.5-1.3-.1-.4-.8-1.5-1.5-1.5Z"/></svg></div><div class="card-title">Alertas por WhatsApp</div><div class="card-desc">Recordatorios automáticos<br>previos a consulta.</div></article>
+ <article class="feature-card" style="left:636px;top:226px"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15v-3a8 8 0 0 1 16 0v3M4 14h3v6H5a2 2 0 0 1-2-2v-2a2 2 0 0 1 1-2ZM20 14h-3v6h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-1-2Z"/><path d="M20 19a5 5 0 0 1-5 4h-3"/></svg></div><div class="card-title">Atención 24/7</div><div class="card-desc">Respuesta inmediata a tus<br>pacientes.</div></article>
+</div></section><section class="slide-frame slide--metric" aria-label="Sección metric"><div class="slide-canvas">
+ <div class="eyebrow" style="left:54px;top:41px">PRODUCTIVIDAD REAL</div>
+ <h2 class="heading" style="left:54px;top:63px;margin:0">Recupera tu tiempo cada día</h2>
+ <div class="kpi" style="left:289px;top:239px">+2 Horas</div>
+ <div class="kpi-foot" style="left:255px;top:347px">Ahorro diario en trabajo administrativo de consultorio</div>
+</div></section><section class="slide-frame slide--absent" aria-label="Sección absent"><div class="slide-canvas">
+ <div class="eyebrow" style="left:54px;top:41px">ASISTENCIA GARANTIZADA</div>
+ <h2 class="heading" style="left:54px;top:63px;margin:0">Menos citas perdidas en tu agenda</h2>
+ <div class="kpi" style="left:54px;top:226px;font-size:86px">-40%</div>
+ <div class="kpi-sub" style="left:54px;top:325px">Reducción de inasistencias de pacientes</div>
+ <div class="body-copy" style="left:54px;top:359px;width:455px;font-size:15px;line-height:26px">Confirmaciones automáticas por WhatsApp que mantienen tu sillón dental activo.</div>
+ <img class="picture" style="left:541.44px;top:143.76px;width:364.56px;height:330px;border-radius:16px" src="imagenes/recordatorios_whatsapp.jpg" alt="Teléfono móvil mostrando un ejemplo de confirmación y recordatorios de citas por WhatsApp"/>
+</div></section><section class="slide-frame slide--trust" aria-label="Sección trust"><div class="slide-canvas">
+ <div class="eyebrow" style="left:54px;top:41px">CONFIANZA Y PROTECCIÓN</div>
+ <h2 class="heading" style="left:54px;top:63px;margin:0">Información clínica 100% protegida</h2>
+ <article class="trust-card" style="left:54px;top:226px"><div class="card-icon green"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 3 6v6c0 5.6 3.7 9.6 9 11 5.3-1.4 9-5.4 9-11V6l-9-4Zm0 3v14.7c-3.8-1.4-6-4.4-6-7.7V8l6-3Z"/></svg></div><div class="card-title">Altos Estándares de Seguridad</div><div class="card-desc">Resguardo confidencial de expedientes clínicos.</div></article>
+ <article class="trust-card" style="left:493px;top:226px"><div class="card-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 10a7 7 0 0 0-13.4-.6A5.3 5.3 0 0 0 7 20h11a5 5 0 0 0 1-10Z"/></svg></div><div class="card-title">Operación 100% en la Nube</div><div class="card-desc">Acceso seguro desde cualquier dispositivo.</div></article>
+</div></section><section class="slide-frame slide--reach" aria-label="Sección reach"><div class="slide-canvas">
+ <div class="eyebrow" style="left:54px;top:41px">ALCANCE Y SOPORTE</div>
+ <h2 class="heading" style="left:54px;top:63px;margin:0">Cobertura en todo México</h2>
+ <div class="location" style="left:54px;top:254px"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5C7.5 2.5 4 6.1 4 10.5c0 6.2 8 11.1 8 11.1s8-4.9 8-11.1c0-4.4-3.5-8-8-8Zm0 10.7a2.7 2.7 0 1 1 0-5.4 2.7 2.7 0 0 1 0 5.4Z"/></svg><span>Ciudad de México, México</span></div>
+ <p class="body-copy" style="left:54px;top:297px;width:365px;font-size:16px;line-height:28px;margin:0">Ofrecemos soporte dedicado y atención continua a consultorios dentales en todo el territorio nacional.</p>
+ <img class="picture" style="left:457.2px;top:140.16px;width:448.8px;height:337.44px;border-radius:17px" src="imagenes/consultorio_dental.jpg" alt="Consultorio dental moderno en tonos azul claro"/>
+</div></section><section class="slide-frame navy slide--closing" aria-label="navy Sección closing"><div class="slide-canvas">
+ <div class="close-kicker" style="left:0;top:174px;width:960px">ASIST DENT</div>
+ <h2 class="close-heading" style="left:75px;top:201px;width:810px;margin:0">Tú cuida las sonrisas, nosotros cuidamos<br>de ti.</h2>
+ <a class="whats-btn" data-whatsapp href="https://api.whatsapp.com/send?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20Asist%20Dent." style="left:315px;top:316px;width:330px;min-height:26px" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp para solicitar una cita"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 11.8a8.5 8.5 0 0 1-12.5 7.5L3 20.7l1.5-4.5A8.5 8.5 0 1 1 20.2 11.8Z"/><path d="M9 8.5c-.5 0-1.1.9-1.1 1.7.1 2.4 2.6 5 5 5.6 1 .2 2.1-.6 2.3-1.1 0-.4-1.8-1.2-2-1-.3.3-.6.7-1 .6-.7-.3-1.9-1.3-2.2-2.1-.2-.5.6-.9.5-1.3-.1-.4-.8-1.5-1.5-1.5Z"/></svg><span>Agenda tu cita por WhatsApp</span></a>
+ <div class="footer-note" style="left:296px;top:350px">Ciudad de México · Atención 100% en la nube en todo México</div>
+</div></section></main>
+<script>
+// Para conectar WhatsApp a tu número, escribe únicamente los números incluyendo el código de país.
+// Ejemplo para México: 5215512345678. No uses espacios, + ni guiones.
+const NUMERO_WHATSAPP = '';
+const MENSAJE = 'Hola, me gustaría agendar una cita con Asist Dent.';
+const enlace = NUMERO_WHATSAPP
+  ? 'https://wa.me/' + NUMERO_WHATSAPP + '?text=' + encodeURIComponent(MENSAJE)
+  : 'https://api.whatsapp.com/send?text=' + encodeURIComponent(MENSAJE);
+document.querySelectorAll('[data-whatsapp]').forEach(boton => boton.href = enlace);
+function ajustarDiapositivas(){
+  if(window.matchMedia('(max-width: 680px)').matches){
+    document.querySelectorAll('.slide-canvas').forEach(el=>el.style.transform='none');return;
+  }
+  document.querySelectorAll('.slide-frame').forEach(frame=>{
+    const canvas=frame.querySelector('.slide-canvas');
+    canvas.style.transform='scale('+(frame.getBoundingClientRect().width/960)+')';
+  });
+}
+window.addEventListener('resize',ajustarDiapositivas); ajustarDiapositivas();
+</script></body></html>
